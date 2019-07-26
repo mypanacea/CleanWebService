@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 public class BookController {
-    private static BookController bookController;
+    private volatile static BookController bookController;
 
     private BookController() {
     }

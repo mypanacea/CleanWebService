@@ -15,14 +15,14 @@ import java.util.regex.Pattern;
 import static common.config.MainConfig.HttpConfig.*;
 
 public class HtmlMarker {
-    private static HtmlMarker htmlMarker;
+    private static volatile HtmlMarker htmlMarker;
 
     private HtmlMarker() {
     }
 
     public static HtmlMarker getInstance() {
         if (htmlMarker == null) {
-            synchronized (BookController.class) {
+            synchronized (HtmlMarker.class) {
                 if (htmlMarker == null) {
                     htmlMarker = new HtmlMarker();
                 }

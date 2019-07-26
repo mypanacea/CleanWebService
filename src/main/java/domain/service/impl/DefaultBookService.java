@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class DefaultBookService implements BookService {
-    private static BookService bookService;
+    private static volatile BookService bookService;
 
     private List<DomainBook> bookList = new ArrayList<>();
 
@@ -18,7 +18,7 @@ public class DefaultBookService implements BookService {
 
     public static BookService getInstance() {
         if (bookService == null) {
-            synchronized (BookController.class) {
+            synchronized (DefaultBookService.class) {
                 if (bookService == null) {
                     bookService = new DefaultBookService();
                 }

@@ -44,6 +44,7 @@ public interface InputStringUtil {
         }
 
         static Map<String, String> parsePostRequestParameter(final String source) {
+            //todo task #2
             return new HashMap<>();
         }
     }
