@@ -1,6 +1,6 @@
 package web.component;
 
-import web.controller.BookController;
+import domain.service.BookService;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -14,7 +14,7 @@ public class HttpRequestSocket {
 
     public static Socket getInstance() throws IOException {
         if (socket == null) {
-            synchronized (HttpRequestSocket.class) {
+            synchronized (BookService.class) {
                 if (socket == null) {
                     socket = new ServerSocket(9001).accept();
                 }
